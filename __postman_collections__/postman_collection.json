@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "d5b15e98-ee83-4ecd-94b2-6a330eb421e9",
+		"name": "AppGen Flask API",
+		"description": "# Task Management App\n\n## Description\n\nThis API Allows user manage his own daily tasks.\n\n## Features\n\n- Add tasks\n- Add Users\n- Add User roles\n- Upload image\n- Login\n- Logout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks/2",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Task by Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks/2023-01-01/2023-02-28",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks",
+								"2023-01-01",
+								"2023-02-28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Task by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks/user/2",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks/10",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_name\": \"Cooking Bean\",\r\n    \"user_id\": 1,\r\n    \"start_date\": \"2023-01-23\",\r\n    \"end_date\": \"2021-11-18\",\r\n    \"description\": \"Cooking at 23h O'clock\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_name\": \"Cooking Fish\",\r\n    \"user_id\": 1,\r\n    \"start_date\": \"2023-03-01\",\r\n    \"end_date\": \"2021-01-12\",\r\n    \"description\": \"Cooking at 13:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/tasks/11",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"tasks",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "# Tasks Made by each user\n\n- Get All user tasks\n- Get a task by id\n- Delete a task\n- Filter Task by Date\n- Filter Task by User Id\n- Add a new Task\n- Edit an existing Task"
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/users",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/users/7",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"users",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/users/6",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"user11\",\r\n    \"password\": \"12345678\",\r\n    \"role_id\": 2,\r\n    \"image\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/users",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Ortiz/Downloads/WhatsApp Image 2023-02-13 at 10.49.44.jpeg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/users/4/upload",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"users",
+								"4",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"user06\",\r\n    \"password\": \"12345678\",\r\n    \"role_id\": 2,\r\n    \"image\": \"a.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/users/7",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"users",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## Users that make a task\n\n- Get All Registered Users\n- Get an User By ID\n- Delete an User\n- Add an User\n- Update an existing User\n- Upload User Image"
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Get Role",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_name\": \"Nothing\",\r\n    \"user_id\": 2,\r\n    \"start_date\": \"2028-09-11\",\r\n    \"end_date\": \"2029-09-11\",\r\n    \"description\": \"None\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/roles/1",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"roles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  Role",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_name\": \"Nothing\",\r\n    \"user_id\": 2,\r\n    \"start_date\": \"2028-09-11\",\r\n    \"end_date\": \"2029-09-11\",\r\n    \"description\": \"None\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/roles/3",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Roles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_name\": \"Nothing\",\r\n    \"user_id\": 2,\r\n    \"start_date\": \"2028-09-11\",\r\n    \"end_date\": \"2029-09-11\",\r\n    \"description\": \"None\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/roles",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role_name\": \"Employee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/roles",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role_name\": \"employee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/roles/3",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## User Roles Features\n\n- Add Role\n- Delete a Role\n- Get All Roles\n- Add a New Role\n- Edit an Existing Role"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/auth/logout",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"admin01\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/auth/login",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logged User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}/auth/user",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## Autentication Features\n\n- Login\n- Logout\n- Logged User data"
+		},
+		{
+			"name": "Root",
+			"item": [
+				{
+					"name": "API Root 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Root 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FLASK_API_ROOT}}",
+							"host": [
+								"{{FLASK_API_ROOT}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Postman  Collection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/postman-collection",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"postman-collection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Postman  Test Run",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/postman-test",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"postman-test"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "# First Endpoint \n\n- /api\n- /"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "FLASK_API_ROOT",
+			"value": "localhost:5000/api",
+			"type": "default"
+		}
+	]
+}
